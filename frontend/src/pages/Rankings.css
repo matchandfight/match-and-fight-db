@@ -1,514 +1,422 @@
 /* ========================================
-   RANKINGS - Diseño Premium 2024
+   RANKINGS - Estilo Strava
    ======================================== */
+
+.rankings-page {
+  --background: var(--strava-bg-gray);
+}
 
 .rankings-content {
-  --background: var(--color-bg-primary);
+  --padding-top: 0;
+  --padding-bottom: 20px;
 }
 
-.rankings-content::part(background) {
-  background: var(--color-bg-primary);
-  background-image: var(--gradient-mesh);
+/* === HEADER === */
+.rankings-header {
+  background: white;
+  padding: var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+  box-shadow: var(--strava-shadow-sm);
 }
 
-.rankings-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 100px 16px 100px 16px;
+.rankings-title {
+  font-size: var(--strava-font-size-3xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-xs) 0;
 }
 
-/* ========================================
-   FILTERS SECTION
-   ======================================== */
-
-.filters-section {
-  margin-bottom: 24px;
+.rankings-subtitle {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
+  margin: 0;
 }
 
-.segment-custom {
-  --background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  padding: 4px;
-  margin-bottom: 14px;
+/* === FILTERS === */
+.rankings-filters {
+  background: white;
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  border-bottom: 8px solid var(--strava-bg-gray);
 }
 
-.segment-custom ion-segment-button {
-  --background-checked: var(--gradient-primary);
-  --color: var(--color-text-tertiary);
-  --color-checked: white;
-  --indicator-color: transparent;
-  --border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 13px;
-  min-height: 38px;
-  text-transform: none;
-}
-
-.filters-row {
+.rankings-tabs {
   display: flex;
-  gap: 10px;
+  gap: var(--strava-space-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.filter-select-compact {
-  flex: 1;
-  --background: var(--glass-bg);
-  --padding-start: 12px;
-  --padding-end: 12px;
-  --padding-top: 10px;
-  --padding-bottom: 10px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  font-size: 13px;
-  color: var(--color-text-secondary);
+.rankings-tabs::-webkit-scrollbar {
+  display: none;
 }
 
-/* ========================================
-   PODIUM SECTION
-   ======================================== */
-
-.podium-section {
-  margin-bottom: 28px;
-  padding: 20px 0;
-}
-
-.podium-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-.podium-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.rankings-tab {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background: var(--strava-bg-gray);
+  border: none;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-semibold);
+  color: var(--strava-mid-gray);
   cursor: pointer;
-  transition: all var(--transition-smooth);
+  transition: all var(--strava-transition-fast);
+  white-space: nowrap;
 }
 
-.podium-item:hover {
-  transform: translateY(-4px);
+.rankings-tab:hover {
+  background: var(--strava-lighter-gray);
+  color: var(--strava-black);
 }
 
-.podium-first {
-  order: 2;
-}
-
-.podium-second {
-  order: 1;
-}
-
-.podium-third {
-  order: 3;
-}
-
-.podium-crown {
-  font-size: 24px;
-  margin-bottom: 4px;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.podium-rank-badge {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: -14px;
-  z-index: 10;
-  box-shadow: var(--shadow-md);
-}
-
-.podium-rank-number {
-  font-size: 13px;
-  font-weight: 800;
+.rankings-tab.active {
+  background: var(--strava-orange);
   color: white;
 }
 
-.podium-rank-gold {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
-}
-
-.podium-rank-silver {
-  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
-  box-shadow: 0 4px 15px rgba(148, 163, 184, 0.4);
-}
-
-.podium-rank-bronze {
-  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
-}
-
-.podium-avatar {
-  border: 3px solid transparent;
-  box-shadow: var(--shadow-lg);
-  transition: all var(--transition-smooth);
-}
-
-.podium-avatar-first {
-  width: 80px;
-  height: 80px;
-  border-color: #fbbf24;
-}
-
-.podium-avatar-second {
-  width: 68px;
-  height: 68px;
-  border-color: #94a3b8;
-}
-
-.podium-avatar-third {
-  width: 68px;
-  height: 68px;
-  border-color: #d97706;
-}
-
-.podium-item:hover .podium-avatar {
-  transform: scale(1.08);
-}
-
-.podium-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 10px 0 4px 0;
-  text-align: center;
-  max-width: 90px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.podium-elo {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ion-color-warning);
-  margin-bottom: 10px;
-}
-
-.podium-elo ion-icon {
-  font-size: 12px;
-}
-
-.podium-platform {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.podium-platform-first {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
-  border: 1px solid rgba(251, 191, 36, 0.3);
-  border-bottom: none;
-  padding: 16px 28px;
-}
-
-.podium-platform-second {
-  background: linear-gradient(135deg, rgba(148, 163, 184, 0.15) 0%, rgba(100, 116, 139, 0.1) 100%);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-bottom: none;
-}
-
-.podium-platform-third {
-  background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(180, 83, 9, 0.1) 100%);
-  border: 1px solid rgba(217, 119, 6, 0.2);
-  border-bottom: none;
-}
-
-.podium-platform-icon {
-  font-size: 18px;
-  color: var(--color-text-muted);
-}
-
-.podium-platform-first .podium-platform-icon {
-  color: #fbbf24;
-  font-size: 22px;
-}
-
-/* ========================================
-   RANKING LIST
-   ======================================== */
-
-.ranking-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* === LEADERBOARD === */
+.rankings-list {
+  padding: var(--strava-space-lg);
 }
 
 .ranking-card {
-  margin: 0;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
+  margin-bottom: var(--strava-space-md);
   overflow: hidden;
-  transition: all var(--transition-smooth);
+  transition: all var(--strava-transition-base);
+  cursor: pointer;
 }
 
 .ranking-card:hover {
-  transform: translateX(4px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--strava-shadow-md);
+  transform: translateY(-2px);
 }
 
-.ranking-card-content {
+.ranking-card-inner {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px !important;
+  gap: var(--strava-space-md);
+  padding: var(--strava-space-lg);
 }
 
-.ranking-position {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  min-width: 48px;
-}
-
-.position-number {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--color-text-primary);
-}
-
-.ranking-trend {
-  --background: transparent;
-  height: 22px;
-  padding: 0 6px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.ranking-trend ion-icon {
-  font-size: 12px;
-  margin-right: 2px;
-}
-
-.ranking-trend-up {
-  --background: rgba(34, 197, 94, 0.15);
-  --color: #22c55e;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.ranking-trend-down {
-  --background: rgba(239, 68, 68, 0.15);
-  --color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.ranking-trend-same {
-  --background: var(--glass-bg);
-  --color: var(--color-text-muted);
-  border: 1px solid var(--glass-border);
-}
-
-.ranking-avatar {
+/* === RANK === */
+.ranking-rank {
+  flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border: 2px solid var(--ion-color-primary);
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--strava-bg-gray);
+  border-radius: var(--strava-border-radius-lg);
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-mid-gray);
 }
 
+.ranking-rank.top-1 {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.ranking-rank.top-2 {
+  background: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(192, 192, 192, 0.3);
+}
+
+.ranking-rank.top-3 {
+  background: linear-gradient(135deg, #CD7F32 0%, #B87333 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
+}
+
+/* === AVATAR === */
+.ranking-avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--strava-border-radius-full);
+  object-fit: cover;
+  border: 3px solid var(--strava-lighter-gray);
+}
+
+.ranking-rank.top-1 + .ranking-avatar {
+  border-color: #FFD700;
+}
+
+.ranking-rank.top-2 + .ranking-avatar {
+  border-color: #C0C0C0;
+}
+
+.ranking-rank.top-3 + .ranking-avatar {
+  border-color: #CD7F32;
+}
+
+/* === INFO === */
 .ranking-info {
   flex: 1;
   min-width: 0;
 }
 
-.ranking-info h3 {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0 0 2px 0;
+.ranking-name {
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 4px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ranking-meta {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin: 0 0 6px 0;
-}
-
-.ranking-tags {
   display: flex;
+  align-items: center;
+  gap: var(--strava-space-sm);
+  flex-wrap: wrap;
+}
+
+.ranking-category {
+  font-size: var(--strava-font-size-sm);
+  color: var(--strava-mid-gray);
+}
+
+.ranking-record {
+  display: inline-flex;
+  align-items: center;
   gap: 4px;
+  font-size: var(--strava-font-size-xs);
+  font-weight: var(--strava-font-weight-semibold);
+  padding: 3px 8px;
+  background: rgba(0, 208, 132, 0.1);
+  color: var(--strava-success);
+  border-radius: var(--strava-border-radius-full);
 }
 
-.ranking-tag {
-  --background: var(--glass-bg-light);
-  --color: var(--color-text-tertiary);
-  height: 22px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.ranking-tag-outline {
-  --background: transparent;
-  border: 1px solid var(--glass-border);
-}
-
+/* === STATS === */
 .ranking-stats {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
 }
 
-.ranking-elo {
-  display: flex;
+.ranking-points {
+  font-size: var(--strava-font-size-2xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  line-height: 1;
+}
+
+.ranking-points-label {
+  font-size: var(--strava-font-size-xs);
+  color: var(--strava-mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ranking-change {
+  display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--gradient-primary);
-  padding: 5px 10px;
-  border-radius: 8px;
-  box-shadow: var(--shadow-glow-primary);
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-semibold);
 }
 
-.ranking-elo ion-icon {
-  font-size: 12px;
-  color: white;
+.ranking-change.up {
+  color: var(--strava-success);
 }
 
-.elo-value {
-  font-size: 13px;
-  font-weight: 800;
-  color: white;
+.ranking-change.down {
+  color: var(--strava-error);
 }
 
-.ranking-record {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-tertiary);
+.ranking-change ion-icon {
+  font-size: 16px;
 }
 
-.record-wins {
-  color: #22c55e;
+/* === PODIUM === */
+.rankings-podium {
+  background: white;
+  padding: var(--strava-space-2xl) var(--strava-space-lg);
+  margin: var(--strava-space-lg);
+  border-radius: var(--strava-border-radius-xl);
+  box-shadow: var(--strava-shadow-md);
 }
 
-.record-losses {
-  color: #ef4444;
+.podium-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--strava-space-md);
+  margin-bottom: var(--strava-space-xl);
 }
 
-.record-draws {
-  color: var(--color-text-muted);
-}
-
-/* ========================================
-   NO RESULTS
-   ======================================== */
-
-.no-results {
+.podium-place {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  text-align: center;
+  flex: 1;
+  max-width: 120px;
 }
 
-.no-results-icon-wrapper {
+.podium-avatar {
   width: 80px;
   height: 80px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
+  border-radius: var(--strava-border-radius-full);
+  object-fit: cover;
+  border: 4px solid;
+  margin-bottom: var(--strava-space-sm);
+}
+
+.podium-place.first .podium-avatar {
+  width: 96px;
+  height: 96px;
+  border-color: #FFD700;
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+}
+
+.podium-place.second .podium-avatar {
+  border-color: #C0C0C0;
+}
+
+.podium-place.third .podium-avatar {
+  border-color: #CD7F32;
+}
+
+.podium-rank-badge {
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: white;
+  margin-top: -18px;
+  margin-bottom: var(--strava-space-sm);
 }
 
-.no-results-icon-wrapper ion-icon {
-  font-size: 36px;
-  color: var(--color-text-muted);
+.podium-place.first .podium-rank-badge {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
 }
 
-.no-results h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0 0 8px 0;
+.podium-place.second .podium-rank-badge {
+  background: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
 }
 
-.no-results p {
-  font-size: 14px;
-  color: var(--color-text-tertiary);
+.podium-place.third .podium-rank-badge {
+  background: linear-gradient(135deg, #CD7F32 0%, #B87333 100%);
+}
+
+.podium-name {
+  font-size: var(--strava-font-size-base);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.podium-points {
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-orange);
+}
+
+/* === EMPTY STATE === */
+.rankings-empty {
+  text-align: center;
+  padding: var(--strava-space-2xl) var(--strava-space-lg);
+  background: white;
+  margin: var(--strava-space-lg);
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
+}
+
+.rankings-empty ion-icon {
+  font-size: 64px;
+  color: var(--strava-light-gray);
+  margin-bottom: var(--strava-space-lg);
+}
+
+.rankings-empty h3 {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-sm) 0;
+}
+
+.rankings-empty p {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
   margin: 0;
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
-@media (max-width: 380px) {
-  .podium-avatar-first {
-    width: 70px;
-    height: 70px;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .ranking-card-inner {
+    padding: var(--strava-space-md);
+    gap: var(--strava-space-sm);
   }
   
-  .podium-avatar-second,
-  .podium-avatar-third {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .podium-name {
-    font-size: 11px;
-    max-width: 75px;
-  }
-  
-  .ranking-card-content {
-    gap: 10px;
-    padding: 12px !important;
+  .ranking-rank {
+    width: 40px;
+    height: 40px;
+    font-size: var(--strava-font-size-lg);
   }
   
   .ranking-avatar {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
   }
   
-  .ranking-info h3 {
-    font-size: 14px;
+  .ranking-name {
+    font-size: var(--strava-font-size-base);
   }
   
-  .ranking-tags {
-    display: none;
+  .ranking-points {
+    font-size: var(--strava-font-size-xl);
+  }
+  
+  .rankings-podium {
+    padding: var(--strava-space-lg) var(--strava-space-md);
+  }
+  
+  .podium-avatar {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .podium-place.first .podium-avatar {
+    width: 80px;
+    height: 80px;
   }
 }
 
-@media (min-width: 768px) {
-  .rankings-container {
-    padding: 110px 24px 100px 24px;
+/* === ANIMATIONS === */
+.ranking-card {
+  animation: slideInUp 0.3s ease-out backwards;
+}
+
+.ranking-card:nth-child(1) { animation-delay: 0.05s; }
+.ranking-card:nth-child(2) { animation-delay: 0.1s; }
+.ranking-card:nth-child(3) { animation-delay: 0.15s; }
+.ranking-card:nth-child(4) { animation-delay: 0.2s; }
+.ranking-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .podium-avatar-first {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .podium-avatar-second,
-  .podium-avatar-third {
-    width: 85px;
-    height: 85px;
-  }
-  
-  .podium-name {
-    font-size: 15px;
-    max-width: 120px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,0 +1,527 @@
+/**
+ * STRAVA DESIGN SYSTEM
+ * Sistema de diseño inspirado en Strava para Match & Fight
+ */
+
+:root {
+  /* === COLORES PRINCIPALES STRAVA === */
+  --strava-orange: #FC4C02;
+  --strava-orange-dark: #E34402;
+  --strava-orange-light: #FF6B35;
+  
+  /* === PALETA DE GRISES === */
+  --strava-black: #1A1A1A;
+  --strava-dark-gray: #242428;
+  --strava-gray: #404040;
+  --strava-mid-gray: #6D6D78;
+  --strava-light-gray: #9B9B9B;
+  --strava-lighter-gray: #E5E5E5;
+  --strava-bg-gray: #F7F7FA;
+  
+  /* === COLORES SEMÁNTICOS === */
+  --strava-success: #00D084;
+  --strava-warning: #FFB020;
+  --strava-error: #E62929;
+  --strava-info: #0091EA;
+  
+  /* === SOMBRAS === */
+  --strava-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --strava-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --strava-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --strava-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* === BORDES === */
+  --strava-border-radius-sm: 4px;
+  --strava-border-radius-md: 8px;
+  --strava-border-radius-lg: 12px;
+  --strava-border-radius-xl: 16px;
+  --strava-border-radius-full: 9999px;
+  
+  /* === ESPACIADO === */
+  --strava-space-xs: 4px;
+  --strava-space-sm: 8px;
+  --strava-space-md: 16px;
+  --strava-space-lg: 24px;
+  --strava-space-xl: 32px;
+  --strava-space-2xl: 48px;
+  
+  /* === TIPOGRAFÍA === */
+  --strava-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --strava-font-size-xs: 11px;
+  --strava-font-size-sm: 13px;
+  --strava-font-size-base: 15px;
+  --strava-font-size-lg: 17px;
+  --strava-font-size-xl: 20px;
+  --strava-font-size-2xl: 24px;
+  --strava-font-size-3xl: 32px;
+  --strava-font-size-4xl: 40px;
+  
+  --strava-font-weight-normal: 400;
+  --strava-font-weight-medium: 500;
+  --strava-font-weight-semibold: 600;
+  --strava-font-weight-bold: 700;
+  
+  /* === TRANSICIONES === */
+  --strava-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --strava-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --strava-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === RESET Y BASE === */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--strava-font-family);
+  font-size: var(--strava-font-size-base);
+  line-height: 1.5;
+  color: var(--strava-black);
+  background-color: var(--strava-bg-gray);
+}
+
+/* === BOTONES ESTILO STRAVA === */
+.strava-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--strava-space-sm);
+  padding: 12px 24px;
+  font-size: var(--strava-font-size-base);
+  font-weight: var(--strava-font-weight-semibold);
+  line-height: 1;
+  border-radius: var(--strava-border-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--strava-transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.strava-btn-primary {
+  background-color: var(--strava-orange);
+  color: white;
+}
+
+.strava-btn-primary:hover {
+  background-color: var(--strava-orange-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--strava-shadow-md);
+}
+
+.strava-btn-secondary {
+  background-color: white;
+  color: var(--strava-black);
+  border: 1px solid var(--strava-lighter-gray);
+}
+
+.strava-btn-secondary:hover {
+  background-color: var(--strava-bg-gray);
+  border-color: var(--strava-light-gray);
+}
+
+.strava-btn-ghost {
+  background-color: transparent;
+  color: var(--strava-gray);
+}
+
+.strava-btn-ghost:hover {
+  background-color: var(--strava-bg-gray);
+  color: var(--strava-black);
+}
+
+/* === CARDS ESTILO STRAVA === */
+.strava-card {
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
+  overflow: hidden;
+  transition: all var(--strava-transition-base);
+}
+
+.strava-card:hover {
+  box-shadow: var(--strava-shadow-md);
+  transform: translateY(-2px);
+}
+
+.strava-card-header {
+  padding: var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+}
+
+.strava-card-body {
+  padding: var(--strava-space-lg);
+}
+
+.strava-card-footer {
+  padding: var(--strava-space-lg);
+  border-top: 1px solid var(--strava-lighter-gray);
+  background-color: var(--strava-bg-gray);
+}
+
+/* === ESTADÍSTICAS GRANDES === */
+.strava-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--strava-space-xs);
+}
+
+.strava-stat-value {
+  font-size: var(--strava-font-size-3xl);
+  font-weight: var(--strava-font-weight-bold);
+  line-height: 1;
+  color: var(--strava-black);
+}
+
+.strava-stat-label {
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-medium);
+  color: var(--strava-mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.strava-stat-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-medium);
+}
+
+.strava-stat-change.positive {
+  color: var(--strava-success);
+}
+
+.strava-stat-change.negative {
+  color: var(--strava-error);
+}
+
+/* === BADGES Y TAGS === */
+.strava-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  font-size: var(--strava-font-size-xs);
+  font-weight: var(--strava-font-weight-semibold);
+  border-radius: var(--strava-border-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.strava-badge-primary {
+  background-color: rgba(252, 76, 2, 0.1);
+  color: var(--strava-orange);
+}
+
+.strava-badge-success {
+  background-color: rgba(0, 208, 132, 0.1);
+  color: var(--strava-success);
+}
+
+.strava-badge-warning {
+  background-color: rgba(255, 176, 32, 0.1);
+  color: var(--strava-warning);
+}
+
+.strava-badge-gray {
+  background-color: rgba(64, 64, 64, 0.1);
+  color: var(--strava-gray);
+}
+
+/* === AVATARES === */
+.strava-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--strava-border-radius-full);
+  background-color: var(--strava-lighter-gray);
+}
+
+.strava-avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: var(--strava-font-size-sm);
+}
+
+.strava-avatar-md {
+  width: 48px;
+  height: 48px;
+  font-size: var(--strava-font-size-lg);
+}
+
+.strava-avatar-lg {
+  width: 64px;
+  height: 64px;
+  font-size: var(--strava-font-size-2xl);
+}
+
+.strava-avatar-xl {
+  width: 96px;
+  height: 96px;
+  font-size: var(--strava-font-size-3xl);
+}
+
+.strava-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === TABS ESTILO STRAVA === */
+.strava-tabs {
+  display: flex;
+  gap: var(--strava-space-sm);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+  padding: 0 var(--strava-space-lg);
+  overflow-x: auto;
+}
+
+.strava-tab {
+  position: relative;
+  padding: var(--strava-space-md) var(--strava-space-sm);
+  font-size: var(--strava-font-size-base);
+  font-weight: var(--strava-font-weight-medium);
+  color: var(--strava-mid-gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--strava-transition-base);
+  white-space: nowrap;
+}
+
+.strava-tab:hover {
+  color: var(--strava-black);
+}
+
+.strava-tab.active {
+  color: var(--strava-orange);
+}
+
+.strava-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--strava-orange);
+  border-radius: 3px 3px 0 0;
+}
+
+/* === PROGRESS BAR === */
+.strava-progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: var(--strava-lighter-gray);
+  border-radius: var(--strava-border-radius-full);
+  overflow: hidden;
+}
+
+.strava-progress-bar {
+  height: 100%;
+  background-color: var(--strava-orange);
+  border-radius: var(--strava-border-radius-full);
+  transition: width var(--strava-transition-slow);
+}
+
+.strava-progress-bar.success {
+  background-color: var(--strava-success);
+}
+
+.strava-progress-bar.warning {
+  background-color: var(--strava-warning);
+}
+
+/* === GRID DE ACTIVIDADES === */
+.strava-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--strava-space-lg);
+  padding: var(--strava-space-lg);
+}
+
+/* === ACTIVITY CARD === */
+.strava-activity-card {
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--strava-shadow-sm);
+  transition: all var(--strava-transition-base);
+  cursor: pointer;
+}
+
+.strava-activity-card:hover {
+  box-shadow: var(--strava-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.strava-activity-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--strava-orange) 0%, var(--strava-orange-dark) 100%);
+}
+
+.strava-activity-content {
+  padding: var(--strava-space-md);
+}
+
+.strava-activity-header {
+  display: flex;
+  align-items: center;
+  gap: var(--strava-space-sm);
+  margin-bottom: var(--strava-space-sm);
+}
+
+.strava-activity-title {
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-xs) 0;
+}
+
+.strava-activity-subtitle {
+  font-size: var(--strava-font-size-sm);
+  color: var(--strava-mid-gray);
+  margin: 0;
+}
+
+.strava-activity-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--strava-space-md);
+  margin-top: var(--strava-space-md);
+  padding-top: var(--strava-space-md);
+  border-top: 1px solid var(--strava-lighter-gray);
+}
+
+.strava-activity-stat {
+  text-align: center;
+}
+
+.strava-activity-stat-value {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  display: block;
+}
+
+.strava-activity-stat-label {
+  font-size: var(--strava-font-size-xs);
+  color: var(--strava-mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* === LEADERBOARD === */
+.strava-leaderboard {
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
+  overflow: hidden;
+}
+
+.strava-leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: var(--strava-space-md);
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+  transition: background-color var(--strava-transition-fast);
+}
+
+.strava-leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+.strava-leaderboard-item:hover {
+  background-color: var(--strava-bg-gray);
+}
+
+.strava-leaderboard-rank {
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-mid-gray);
+  min-width: 32px;
+  text-align: center;
+}
+
+.strava-leaderboard-rank.top-3 {
+  color: var(--strava-orange);
+}
+
+.strava-leaderboard-info {
+  flex: 1;
+}
+
+.strava-leaderboard-name {
+  font-size: var(--strava-font-size-base);
+  font-weight: var(--strava-font-weight-semibold);
+  color: var(--strava-black);
+  margin: 0 0 2px 0;
+}
+
+.strava-leaderboard-meta {
+  font-size: var(--strava-font-size-sm);
+  color: var(--strava-mid-gray);
+}
+
+.strava-leaderboard-score {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .strava-activity-grid {
+    grid-template-columns: 1fr;
+    padding: var(--strava-space-md);
+  }
+  
+  .strava-stat-value {
+    font-size: var(--strava-font-size-2xl);
+  }
+  
+  .strava-activity-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--strava-space-sm);
+  }
+}
+
+/* === ANIMACIONES === */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp var(--strava-transition-base) ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--strava-transition-base) ease-out;
+}
+

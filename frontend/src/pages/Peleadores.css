@@ -1,405 +1,359 @@
 /* ========================================
-   PELEADORES - Diseño Premium 2024
+   PELEADORES - Estilo Strava
    ======================================== */
+
+.peleadores-page {
+  --background: var(--strava-bg-gray);
+}
 
 .peleadores-content {
-  --background: var(--color-bg-primary);
+  --padding-top: 0;
+  --padding-bottom: 20px;
 }
 
-.peleadores-content::part(background) {
-  background: var(--color-bg-primary);
-  background-image: var(--gradient-mesh);
+/* === HEADER === */
+.peleadores-header {
+  background: white;
+  padding: var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+  box-shadow: var(--strava-shadow-sm);
 }
 
-.peleadores-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 100px 16px 100px 16px;
+.peleadores-title {
+  font-size: var(--strava-font-size-3xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-xs) 0;
 }
 
-/* ========================================
-   SEARCH TOOLBAR
-   ======================================== */
-
-.search-toolbar {
-  --background: transparent;
-  --border-width: 0;
-  --padding-start: 12px;
-  --padding-end: 12px;
-  padding-bottom: 8px;
-}
-
-.custom-searchbar {
-  --background: var(--glass-bg);
-  --border-radius: var(--radius-lg);
-  --box-shadow: none;
-  --placeholder-color: var(--color-text-muted);
-  --icon-color: var(--color-text-muted);
-  --color: var(--color-text-primary);
-  padding: 0;
-}
-
-.custom-searchbar .searchbar-input-container {
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  background: var(--glass-bg);
-}
-
-/* ========================================
-   FILTERS CARD
-   ======================================== */
-
-.filters-card {
-  margin: 0 0 20px 0;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-}
-
-.filters-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.filters-header h3 {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-text-primary);
+.peleadores-subtitle {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
   margin: 0;
 }
 
-.filters-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* === SEARCH === */
+.peleadores-search {
+  background: white;
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
 }
 
-.filter-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+/* === FILTERS === */
+.peleadores-filters {
+  background: white;
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  border-bottom: 8px solid var(--strava-bg-gray);
 }
 
-.filter-item label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-tertiary);
+.filters-row {
+  display: flex;
+  gap: var(--strava-space-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filters-row::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chip {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: var(--strava-bg-gray);
+  border: 1px solid transparent;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-semibold);
+  color: var(--strava-mid-gray);
+  cursor: pointer;
+  transition: all var(--strava-transition-fast);
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  background: var(--strava-lighter-gray);
+  color: var(--strava-black);
+}
+
+.filter-chip.active {
+  background: rgba(252, 76, 2, 0.1);
+  color: var(--strava-orange);
+  border-color: var(--strava-orange);
+}
+
+/* === GRID === */
+.peleadores-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--strava-space-md);
+  padding: var(--strava-space-lg);
+}
+
+/* === CARD === */
+.peleador-card {
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
+  overflow: hidden;
+  transition: all var(--strava-transition-base);
+  cursor: pointer;
+}
+
+.peleador-card:hover {
+  box-shadow: var(--strava-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* === CARD HEADER === */
+.peleador-card-header {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(135deg, var(--strava-orange) 0%, var(--strava-orange-dark) 100%);
+  overflow: hidden;
+}
+
+.peleador-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.peleador-avatar-container {
+  position: absolute;
+  bottom: -40px;
+  left: var(--strava-space-lg);
+  z-index: 1;
+}
+
+.peleador-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--strava-border-radius-full);
+  border: 4px solid white;
+  object-fit: cover;
+  background: var(--strava-bg-gray);
+  box-shadow: var(--strava-shadow-md);
+}
+
+.peleador-rank-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-orange);
+  box-shadow: var(--strava-shadow-sm);
+}
+
+/* === CARD BODY === */
+.peleador-card-body {
+  padding: calc(var(--strava-space-xl) + 12px) var(--strava-space-lg) var(--strava-space-lg);
+}
+
+.peleador-name {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.peleador-nickname {
+  font-size: var(--strava-font-size-sm);
+  color: var(--strava-mid-gray);
+  margin: 0 0 var(--strava-space-md) 0;
+}
+
+.peleador-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--strava-space-sm);
+  margin-bottom: var(--strava-space-md);
+}
+
+.peleador-tag {
+  padding: 4px 10px;
+  background: var(--strava-bg-gray);
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-xs);
+  font-weight: var(--strava-font-weight-semibold);
+  color: var(--strava-gray);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.filter-select {
-  --background: var(--glass-bg-light);
-  --padding-start: 14px;
-  --padding-end: 14px;
-  --padding-top: 10px;
-  --padding-bottom: 10px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  color: var(--color-text-primary);
+.peleador-tag.categoria {
+  background: rgba(252, 76, 2, 0.1);
+  color: var(--strava-orange);
 }
 
-/* ========================================
-   FIGHTERS GRID
-   ======================================== */
-
-.fighters-grid {
+/* === STATS GRID === */
+.peleador-stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--strava-space-sm);
+  padding-top: var(--strava-space-md);
+  margin-top: var(--strava-space-md);
+  border-top: 1px solid var(--strava-lighter-gray);
 }
 
-.fighter-card {
-  margin: 0;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: all var(--transition-smooth);
+.peleador-stat {
+  text-align: center;
 }
 
-.fighter-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(255, 255, 255, 0.12);
+.peleador-stat-value {
+  display: block;
+  font-size: var(--strava-font-size-lg);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-.fighter-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 140px;
-  overflow: hidden;
-}
-
-.fighter-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.fighter-card:hover .fighter-image {
-  transform: scale(1.08);
-}
-
-.fighter-image-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background: linear-gradient(to top, 
-    rgba(10, 15, 26, 0.95) 0%, 
-    rgba(10, 15, 26, 0.5) 40%,
-    transparent 70%
-  );
-}
-
-.verified-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 24px;
-  height: 24px;
-  background: rgba(34, 197, 94, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.verified-badge ion-icon {
-  color: #22c55e;
-  font-size: 16px;
-}
-
-.elo-badge {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--gradient-primary);
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
-  box-shadow: var(--shadow-glow-primary);
-}
-
-.elo-badge ion-icon {
-  font-size: 12px;
-}
-
-.fighter-content {
-  padding: 14px !important;
-}
-
-.fighter-header {
-  margin-bottom: 10px;
-}
-
-.fighter-header h2 {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.fighter-alias {
-  font-size: 12px;
-  color: var(--ion-color-primary);
-  font-style: italic;
-  margin: 4px 0 0 0;
-}
-
-.fighter-stats {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.stat-label {
-  font-size: 10px;
-  color: var(--color-text-muted);
+.peleador-stat-label {
+  font-size: var(--strava-font-size-xs);
+  color: var(--strava-mid-gray);
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
-.stat-value {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-}
-
-.stat-wins {
-  color: #22c55e;
-}
-
-.stat-losses {
-  color: #ef4444;
-}
-
-.stat-draws {
-  color: var(--color-text-muted);
-}
-
-.stat-divider {
-  width: 1px;
-  height: 24px;
-  background: var(--glass-border);
-}
-
-.fighter-tags {
+/* === RECORD === */
+.peleador-record {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  justify-content: center;
+  gap: var(--strava-space-lg);
+  padding: var(--strava-space-md);
+  background: var(--strava-bg-gray);
+  border-radius: var(--strava-border-radius-md);
+  margin-top: var(--strava-space-md);
 }
 
-.fighter-chip {
-  --background: var(--glass-bg-light);
-  --color: var(--color-text-secondary);
-  height: 24px;
-  font-size: 10px;
-  font-weight: 600;
+.record-item {
+  text-align: center;
 }
 
-.fighter-chip ion-icon {
-  font-size: 12px;
-  margin-right: 2px;
+.record-value {
+  font-size: var(--strava-font-size-2xl);
+  font-weight: var(--strava-font-weight-bold);
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-.fighter-chip-outline {
-  --background: transparent;
-  border: 1px solid var(--glass-border);
+.record-value.victorias {
+  color: var(--strava-success);
 }
 
-.availability-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 9px;
-  font-weight: 700;
-  padding: 4px 8px;
-  --background: rgba(34, 197, 94, 0.2);
-  --color: #22c55e;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+.record-value.derrotas {
+  color: var(--strava-error);
+}
+
+.record-value.empates {
+  color: var(--strava-mid-gray);
+}
+
+.record-label {
+  font-size: var(--strava-font-size-xs);
+  color: var(--strava-mid-gray);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-/* ========================================
-   NO RESULTS
-   ======================================== */
-
-.no-results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
+/* === EMPTY STATE === */
+.peleadores-empty {
   text-align: center;
+  padding: var(--strava-space-2xl) var(--strava-space-lg);
+  background: white;
+  margin: var(--strava-space-lg);
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
 }
 
-.no-results-icon-wrapper {
-  width: 80px;
-  height: 80px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+.peleadores-empty ion-icon {
+  font-size: 64px;
+  color: var(--strava-light-gray);
+  margin-bottom: var(--strava-space-lg);
 }
 
-.no-results-icon-wrapper ion-icon {
-  font-size: 36px;
-  color: var(--color-text-muted);
+.peleadores-empty h3 {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-sm) 0;
 }
 
-.no-results h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0 0 8px 0;
-}
-
-.no-results p {
-  font-size: 14px;
-  color: var(--color-text-tertiary);
+.peleadores-empty p {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
   margin: 0;
 }
 
-/* ========================================
-   FILTER FAB
-   ======================================== */
-
-.filter-fab {
-  margin-bottom: 20px;
-  margin-right: 8px;
-}
-
-.filter-fab-button {
-  --background: var(--gradient-primary);
-  --box-shadow: var(--shadow-glow-primary);
-}
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
-@media (max-width: 380px) {
-  .fighters-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .fighter-image-wrapper {
-    height: 160px;
+/* === RESPONSIVE === */
+@media (min-width: 640px) {
+  .peleadores-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--strava-space-lg);
   }
 }
 
-@media (min-width: 600px) {
-  .fighters-grid {
+@media (min-width: 1024px) {
+  .peleadores-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 768px) {
-  .peleadores-container {
-    padding: 110px 24px 100px 24px;
-  }
-  
-  .fighters-grid {
+@media (min-width: 1280px) {
+  .peleadores-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+  }
+}
+
+@media (max-width: 639px) {
+  .peleador-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--strava-space-md);
   }
   
-  .filters-grid {
-    flex-direction: row;
+  .peleador-stat:nth-child(n+3) {
+    padding-top: var(--strava-space-md);
+    border-top: 1px solid var(--strava-lighter-gray);
   }
-  
-  .filter-item {
-    flex: 1;
+}
+
+/* === ANIMATIONS === */
+.peleador-card {
+  animation: scaleIn 0.3s ease-out backwards;
+}
+
+.peleador-card:nth-child(1) { animation-delay: 0.05s; }
+.peleador-card:nth-child(2) { animation-delay: 0.1s; }
+.peleador-card:nth-child(3) { animation-delay: 0.15s; }
+.peleador-card:nth-child(4) { animation-delay: 0.2s; }
+.peleador-card:nth-child(5) { animation-delay: 0.25s; }
+.peleador-card:nth-child(6) { animation-delay: 0.3s; }
+.peleador-card:nth-child(7) { animation-delay: 0.35s; }
+.peleador-card:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

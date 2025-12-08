@@ -1,276 +1,407 @@
 /* ========================================
-   EVENTOS - Diseño Premium 2024
+   EVENTOS - Estilo Strava
    ======================================== */
+
+.eventos-page {
+  --background: var(--strava-bg-gray);
+}
 
 .eventos-content {
-  --background: var(--color-bg-primary);
+  --padding-top: 0;
+  --padding-bottom: 20px;
 }
 
-.eventos-content::part(background) {
-  background: var(--color-bg-primary);
-  background-image: var(--gradient-mesh);
+/* === HEADER === */
+.eventos-header {
+  background: white;
+  padding: var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+  box-shadow: var(--strava-shadow-sm);
 }
 
-.eventos-container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 100px 16px 100px 16px;
+.eventos-title {
+  font-size: var(--strava-font-size-3xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-xs) 0;
 }
 
-/* ========================================
-   SECTION LABEL
-   ======================================== */
+.eventos-subtitle {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
+  margin: 0;
+}
 
-.section-label {
+/* === SEARCH & FILTERS === */
+.eventos-search-bar {
+  background: white;
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  border-bottom: 1px solid var(--strava-lighter-gray);
+}
+
+.eventos-filters {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding: 0 4px;
+  gap: var(--strava-space-sm);
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  background: white;
+  border-bottom: 8px solid var(--strava-bg-gray);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.section-label ion-icon {
-  font-size: 18px;
-  color: var(--ion-color-warning);
+.filter-chip {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: var(--strava-bg-gray);
+  border: 1px solid transparent;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-semibold);
+  color: var(--strava-mid-gray);
+  cursor: pointer;
+  transition: all var(--strava-transition-fast);
+  white-space: nowrap;
 }
 
-.section-label span {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.filter-chip:hover {
+  background: var(--strava-lighter-gray);
+  color: var(--strava-black);
 }
 
-/* ========================================
-   EVENTO CARD
-   ======================================== */
+.filter-chip.active {
+  background: rgba(252, 76, 2, 0.1);
+  color: var(--strava-orange);
+  border-color: var(--strava-orange);
+}
 
+/* === EVENTOS GRID === */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--strava-space-lg);
+  padding: var(--strava-space-lg);
+}
+
+/* === EVENTO CARD === */
 .evento-card {
-  margin: 0 0 14px 0;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
   overflow: hidden;
-  transition: all var(--transition-smooth);
+  transition: all var(--strava-transition-base);
+  cursor: pointer;
 }
 
 .evento-card:hover {
+  box-shadow: var(--strava-shadow-lg);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(255, 255, 255, 0.12);
 }
 
-.evento-card.evento-pasado {
-  opacity: 0.6;
+.evento-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
-.evento-card.evento-pasado:hover {
-  transform: none;
+.evento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--strava-orange) 0%, var(--strava-orange-dark) 100%);
+  transition: transform var(--strava-transition-base);
 }
 
-.evento-layout {
+.evento-card:hover .evento-image {
+  transform: scale(1.05);
+}
+
+.evento-badge-container {
+  position: absolute;
+  top: var(--strava-space-md);
+  right: var(--strava-space-md);
   display: flex;
-  gap: 0;
+  gap: var(--strava-space-sm);
 }
 
-/* ========================================
-   DATE BADGE
-   ======================================== */
-
-.evento-date-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
-  padding: 16px;
-  background: linear-gradient(135deg, 
-    rgba(99, 102, 241, 0.15) 0%, 
-    rgba(168, 85, 247, 0.1) 100%
-  );
-  border-right: 1px solid var(--glass-border);
+.evento-badge {
+  padding: 6px 12px;
+  border-radius: var(--strava-border-radius-md);
+  font-size: var(--strava-font-size-xs);
+  font-weight: var(--strava-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--strava-shadow-md);
 }
 
-.evento-date-day {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--color-text-primary);
-  line-height: 1;
+.evento-badge.destacado {
+  background: rgba(252, 76, 2, 0.95);
+  color: white;
 }
 
-.evento-date-month {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ion-color-primary);
-  letter-spacing: 1px;
-  margin-top: 2px;
+.evento-badge.nuevo {
+  background: rgba(0, 208, 132, 0.95);
+  color: white;
 }
 
-.evento-countdown {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 10px;
-  padding: 4px 8px;
-  background: var(--glass-bg);
-  border-radius: 8px;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--ion-color-success);
+.evento-badge.pronto {
+  background: rgba(255, 176, 32, 0.95);
+  color: white;
 }
 
-.evento-countdown ion-icon {
-  font-size: 10px;
-}
-
-/* ========================================
-   EVENTO CONTENT
-   ======================================== */
-
+/* === CONTENT === */
 .evento-content {
-  flex: 1;
-  padding: 16px !important;
+  padding: var(--strava-space-lg);
 }
 
 .evento-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: var(--strava-space-md);
 }
 
 .evento-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: 1.3;
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-sm) 0;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.evento-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--strava-space-sm);
+}
+
+.evento-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--strava-space-sm);
+  font-size: var(--strava-font-size-sm);
+  color: var(--strava-mid-gray);
+}
+
+.evento-meta-item ion-icon {
+  font-size: 18px;
+  color: var(--strava-orange);
+}
+
+.evento-meta-text {
   flex: 1;
 }
 
-.evento-badge-active {
-  --background: rgba(34, 197, 94, 0.15);
-  --color: #22c55e;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 8px;
+/* === STATS === */
+.evento-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--strava-space-md);
+  padding-top: var(--strava-space-md);
+  margin-top: var(--strava-space-md);
+  border-top: 1px solid var(--strava-lighter-gray);
+}
+
+.evento-stat {
+  text-align: center;
+}
+
+.evento-stat-value {
+  display: block;
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.evento-stat-label {
+  font-size: var(--strava-font-size-xs);
+  color: var(--strava-mid-gray);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.evento-badge-past {
-  --background: var(--glass-bg);
-  --color: var(--color-text-muted);
-  font-size: 10px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 8px;
-}
-
-.evento-info-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.evento-info-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
-
-.evento-info-item ion-icon {
-  font-size: 16px;
-  color: var(--color-text-muted);
-}
-
+/* === FOOTER === */
 .evento-footer {
-  padding-top: 12px;
-  border-top: 1px solid var(--glass-border);
-}
-
-.evento-promotor-chip {
-  --background: var(--glass-bg-light);
-  --color: var(--color-text-tertiary);
-  height: 26px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-/* ========================================
-   NO RESULTS
-   ======================================== */
-
-.no-results {
+  padding: var(--strava-space-md) var(--strava-space-lg);
+  background: var(--strava-bg-gray);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
+  justify-content: space-between;
+}
+
+.evento-promotor {
+  display: flex;
+  align-items: center;
+  gap: var(--strava-space-sm);
+}
+
+.evento-promotor-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--strava-border-radius-full);
+  border: 2px solid white;
+}
+
+.evento-promotor-name {
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-medium);
+  color: var(--strava-gray);
+}
+
+.evento-action-btn {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  height: 36px;
+  font-size: var(--strava-font-size-sm);
+  font-weight: var(--strava-font-weight-semibold);
+  text-transform: none;
+}
+
+/* === FEATURED CARD === */
+.evento-card.featured {
+  grid-column: 1 / -1;
+}
+
+.evento-card.featured .evento-image-container {
+  height: 300px;
+}
+
+.evento-card.featured .evento-title {
+  font-size: var(--strava-font-size-2xl);
+}
+
+/* === ESTADO BADGES === */
+.evento-estado-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--strava-border-radius-full);
+  font-size: var(--strava-font-size-xs);
+  font-weight: var(--strava-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.evento-estado-badge.abierto {
+  background: rgba(0, 208, 132, 0.1);
+  color: var(--strava-success);
+}
+
+.evento-estado-badge.cerrado {
+  background: rgba(109, 109, 120, 0.1);
+  color: var(--strava-mid-gray);
+}
+
+.evento-estado-badge.en-curso {
+  background: rgba(252, 76, 2, 0.1);
+  color: var(--strava-orange);
+}
+
+.evento-estado-badge.finalizado {
+  background: rgba(26, 26, 26, 0.1);
+  color: var(--strava-gray);
+}
+
+/* === EMPTY STATE === */
+.eventos-empty {
   text-align: center;
+  padding: var(--strava-space-2xl) var(--strava-space-lg);
+  background: white;
+  margin: var(--strava-space-lg);
+  border-radius: var(--strava-border-radius-lg);
+  box-shadow: var(--strava-shadow-sm);
 }
 
-.no-results-icon-wrapper {
-  width: 80px;
-  height: 80px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+.eventos-empty ion-icon {
+  font-size: 64px;
+  color: var(--strava-light-gray);
+  margin-bottom: var(--strava-space-lg);
 }
 
-.no-results-icon-wrapper ion-icon {
-  font-size: 36px;
-  color: var(--color-text-muted);
+.eventos-empty h3 {
+  font-size: var(--strava-font-size-xl);
+  font-weight: var(--strava-font-weight-bold);
+  color: var(--strava-black);
+  margin: 0 0 var(--strava-space-sm) 0;
 }
 
-.no-results h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0 0 8px 0;
-}
-
-.no-results p {
-  font-size: 14px;
-  color: var(--color-text-tertiary);
+.eventos-empty p {
+  font-size: var(--strava-font-size-base);
+  color: var(--strava-mid-gray);
   margin: 0;
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
-@media (max-width: 380px) {
-  .evento-date-badge {
-    min-width: 70px;
-    padding: 12px;
-  }
-  
-  .evento-date-day {
-    font-size: 24px;
-  }
-  
-  .evento-title {
-    font-size: 15px;
+/* === RESPONSIVE === */
+@media (min-width: 640px) {
+  .eventos-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 768px) {
-  .eventos-container {
-    padding: 110px 24px 100px 24px;
+@media (min-width: 1024px) {
+  .eventos-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   
-  .evento-date-badge {
-    min-width: 100px;
+  .evento-card.featured {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eventos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* === ANIMATIONS === */
+.evento-card {
+  animation: fadeInUp 0.4s ease-out backwards;
+}
+
+.evento-card:nth-child(1) { animation-delay: 0.05s; }
+.evento-card:nth-child(2) { animation-delay: 0.1s; }
+.evento-card:nth-child(3) { animation-delay: 0.15s; }
+.evento-card:nth-child(4) { animation-delay: 0.2s; }
+.evento-card:nth-child(5) { animation-delay: 0.25s; }
+.evento-card:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === SKELETON LOADING === */
+.evento-skeleton {
+  background: white;
+  border-radius: var(--strava-border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--strava-shadow-sm);
+}
+
+.evento-skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #E5E5E5 25%, #F0F0F0 50%, #E5E5E5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

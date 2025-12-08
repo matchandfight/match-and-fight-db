@@ -1,6 +1,9 @@
 /* ========================================
-   GLOBAL STYLES - Diseño Premium 2024
+   GLOBAL STYLES - Diseño Estilo Strava
    ======================================== */
+
+/* Importar Sistema de Diseño Strava */
+@import "./strava-design-system.css";
 
 * {
   box-sizing: border-box;
