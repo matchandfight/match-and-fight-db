@@ -1,0 +1,177 @@
+/* ========================================
+   THEME VARIABLES - Diseño Premium 2024
+   Inspirado en apps modernas (Discord, Spotify, Linear)
+   ======================================== */
+
+:root {
+  /* Colores base del tema oscuro */
+  --color-bg-primary: #0a0f1a;
+  --color-bg-secondary: #111827;
+  --color-bg-tertiary: #1f2937;
+  --color-bg-elevated: #242c3d;
+  
+  /* Superficies */
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-surface-active: rgba(255, 255, 255, 0.08);
+  
+  /* Texto */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.35);
+  
+  /* Bordes */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+  
+  /** primary - Índigo vibrante **/
+  --ion-color-primary: #6366f1;
+  --ion-color-primary-rgb: 99, 102, 241;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #5558d4;
+  --ion-color-primary-tint: #7375f2;
+
+  /** secondary - Púrpura moderno **/
+  --ion-color-secondary: #a855f7;
+  --ion-color-secondary-rgb: 168, 85, 247;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #944ad9;
+  --ion-color-secondary-tint: #b166f8;
+
+  /** tertiary - Rosa/Fucsia **/
+  --ion-color-tertiary: #ec4899;
+  --ion-color-tertiary-rgb: 236, 72, 153;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #d03f87;
+  --ion-color-tertiary-tint: #ee5aa3;
+
+  /** success - Verde esmeralda **/
+  --ion-color-success: #22c55e;
+  --ion-color-success-rgb: 34, 197, 94;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #1ead53;
+  --ion-color-success-tint: #38cb6e;
+
+  /** warning - Ámbar dorado **/
+  --ion-color-warning: #f59e0b;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #d88b0a;
+  --ion-color-warning-tint: #f6a823;
+
+  /** danger - Rojo coral **/
+  --ion-color-danger: #ef4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23c3c;
+  --ion-color-danger-tint: #f15757;
+
+  /** dark **/
+  --ion-color-dark: #0a0f1a;
+  --ion-color-dark-rgb: 10, 15, 26;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #090d17;
+  --ion-color-dark-tint: #1a2234;
+
+  /** medium **/
+  --ion-color-medium: #6b7280;
+  --ion-color-medium-rgb: 107, 114, 128;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #5e6571;
+  --ion-color-medium-tint: #7a808d;
+
+  /** light **/
+  --ion-color-light: #1f2937;
+  --ion-color-light-rgb: 31, 41, 55;
+  --ion-color-light-contrast: #ffffff;
+  --ion-color-light-contrast-rgb: 255, 255, 255;
+  --ion-color-light-shade: #1b2430;
+  --ion-color-light-tint: #353e4b;
+
+  /* Gradientes premium */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --gradient-secondary: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  --gradient-success: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-dark: linear-gradient(180deg, #0a0f1a 0%, #111827 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  
+  /* Gradiente animado de fondo */
+  --gradient-mesh: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+
+  /* Glassmorphism mejorado */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-light: rgba(255, 255, 255, 0.06);
+  --glass-bg-medium: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --glass-blur: blur(20px);
+  
+  /* Sombras modernas */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-glow-primary: 0 0 30px rgba(99, 102, 241, 0.3);
+  --shadow-glow-secondary: 0 0 30px rgba(168, 85, 247, 0.3);
+  --shadow-glow-accent: 0 0 30px rgba(236, 72, 153, 0.3);
+  
+  /* Radios de borde */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Espaciado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Ionic overrides */
+  --ion-background-color: var(--color-bg-primary);
+  --ion-background-color-rgb: 10, 15, 26;
+  --ion-text-color: var(--color-text-primary);
+  --ion-text-color-rgb: 255, 255, 255;
+  --ion-toolbar-background: transparent;
+  --ion-item-background: transparent;
+  --ion-card-background: var(--glass-bg);
+}
+
+/* Tema iOS específico */
+.ios {
+  --ion-background-color: var(--color-bg-primary);
+  --ion-toolbar-background: transparent;
+}
+
+/* Tema MD específico */
+.md {
+  --ion-background-color: var(--color-bg-primary);
+  --ion-toolbar-background: transparent;
+}

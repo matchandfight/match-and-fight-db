@@ -1,0 +1,498 @@
+/* ========================================
+   GLOBAL STYLES - Diseño Premium 2024
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ========================================
+   IONIC COMPONENT OVERRIDES
+   ======================================== */
+
+/* Contenido de página */
+ion-content {
+  --background: var(--color-bg-primary);
+}
+
+ion-content::part(background) {
+  background: var(--color-bg-primary);
+  background-image: var(--gradient-mesh);
+}
+
+/* Headers */
+ion-header {
+  box-shadow: none !important;
+}
+
+ion-header::after {
+  display: none;
+}
+
+/* Toolbars */
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+}
+
+/* Cards modernas */
+ion-card {
+  --background: var(--glass-bg);
+  background: var(--gradient-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin: 12px;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+ion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+ion-card-header {
+  padding: 16px 16px 8px;
+}
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+ion-card-subtitle {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin-top: 4px;
+}
+
+ion-card-content {
+  padding: 8px 16px 16px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* Botones modernos */
+ion-button {
+  --border-radius: var(--radius-md);
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --padding-start: 24px;
+  --padding-end: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  transition: all var(--transition-normal);
+}
+
+ion-button:not([fill="clear"]):not([fill="outline"]) {
+  --background: var(--gradient-primary);
+  --box-shadow: var(--shadow-glow-primary);
+}
+
+ion-button:hover {
+  transform: translateY(-2px);
+  --box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+}
+
+ion-button:active {
+  transform: translateY(0);
+}
+
+ion-button[fill="outline"] {
+  --border-width: 1.5px;
+  --border-color: var(--glass-border);
+  --color: var(--color-text-secondary);
+}
+
+ion-button[fill="outline"]:hover {
+  --border-color: var(--ion-color-primary);
+  --color: var(--ion-color-primary);
+  --background: rgba(99, 102, 241, 0.1);
+}
+
+ion-button[fill="clear"] {
+  --color: var(--color-text-secondary);
+}
+
+ion-button[fill="clear"]:hover {
+  --color: var(--ion-color-primary);
+}
+
+/* Items */
+ion-item {
+  --background: transparent;
+  --background-hover: var(--color-surface-hover);
+  --background-activated: var(--color-surface-active);
+  --border-color: var(--glass-border);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --inner-padding-end: 16px;
+  --min-height: 56px;
+  --border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+ion-item::part(native) {
+  border-radius: var(--radius-md);
+}
+
+ion-label {
+  font-size: 15px;
+  color: var(--color-text-primary);
+}
+
+ion-label p {
+  color: var(--color-text-tertiary) !important;
+  font-size: 13px;
+}
+
+/* Inputs */
+ion-input, ion-textarea {
+  --background: var(--glass-bg);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --border-radius: var(--radius-md);
+  --placeholder-color: var(--color-text-muted);
+  --color: var(--color-text-primary);
+  font-size: 15px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+ion-input:focus-within, ion-textarea:focus-within {
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Badges */
+ion-badge {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Chips */
+ion-chip {
+  --background: var(--glass-bg-light);
+  --color: var(--color-text-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+ion-chip:hover {
+  --background: var(--glass-bg-medium);
+  transform: scale(1.02);
+}
+
+ion-chip ion-icon {
+  color: var(--ion-color-primary);
+}
+
+/* Avatars */
+ion-avatar {
+  border: 2px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Segments */
+ion-segment {
+  --background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  border: 1px solid var(--glass-border);
+}
+
+ion-segment-button {
+  --background-checked: var(--gradient-primary);
+  --color: var(--color-text-tertiary);
+  --color-checked: white;
+  --indicator-color: transparent;
+  --border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 13px;
+  min-height: 40px;
+  transition: all var(--transition-fast);
+}
+
+/* Searchbar */
+ion-searchbar {
+  --background: var(--glass-bg);
+  --border-radius: var(--radius-lg);
+  --box-shadow: none;
+  --placeholder-color: var(--color-text-muted);
+  --icon-color: var(--color-text-muted);
+  --color: var(--color-text-primary);
+  padding: 8px 16px;
+}
+
+ion-searchbar .searchbar-input-container {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Tab bar moderna */
+.tab-bar-custom {
+  --background: rgba(10, 15, 26, 0.95);
+  --border: none;
+  border-top: 1px solid var(--glass-border);
+  height: 64px;
+  padding-bottom: env(safe-area-inset-bottom);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+ion-tab-button {
+  --color: var(--color-text-muted);
+  --color-selected: var(--ion-color-primary);
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  transition: all var(--transition-fast);
+}
+
+ion-tab-button.tab-selected {
+  --color: var(--ion-color-primary);
+}
+
+ion-tab-button ion-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+ion-tab-button ion-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Refresher */
+ion-refresher-content {
+  --color: var(--ion-color-primary);
+}
+
+/* ========================================
+   GLASS CARDS
+   ======================================== */
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-smooth);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.glass-card-elevated {
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+  }
+}
+
+/* Animación de entrada escalonada */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* ========================================
+   UTILIDADES
+   ======================================== */
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  border: none !important;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ========================================
+   SCROLLBAR PERSONALIZADO
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-bg-medium);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--glass-bg-light);
+}
+
+/* ========================================
+   SAFE AREAS
+   ======================================== */
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

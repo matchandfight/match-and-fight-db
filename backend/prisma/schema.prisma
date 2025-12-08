@@ -1,0 +1,268 @@
+// Configuración de Prisma para Supabase (PostgreSQL)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Clase {
+  N
+  C
+  B
+  A
+}
+
+enum Genero {
+  MASCULINO
+  FEMENINO
+  OTRO
+}
+
+enum RolUsuario {
+  ATLETA
+  MANAGER
+  PROMOTOR
+  ADMIN
+}
+
+enum EstadoOferta {
+  PENDIENTE
+  ACEPTADA
+  RECHAZADA
+  CANCELADA
+}
+
+enum MetodoCombate {
+  KO
+  TKO
+  DECISION
+  DESCALIFICACION
+  OTRO
+}
+
+// Modelo Usuario (base para todos los roles)
+model Usuario {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  password      String
+  rol           RolUsuario
+  nombre        String
+  telefono      String?
+  activo        Boolean     @default(true)
+  verificado    Boolean     @default(false)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // Relaciones según rol
+  peleador      Peleador?
+  manager       Manager?
+  promotor      Promotor?
+
+  @@map("usuarios")
+}
+
+// Modelo Peleador
+model Peleador {
+  id                    String      @id @default(uuid())
+  usuarioId             String      @unique
+  usuario               Usuario     @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  
+  // Datos personales
+  nombre                String
+  alias                 String?
+  fechaNacimiento       DateTime
+  genero                Genero
+  clase                 Clase
+  peso                  Decimal     @db.Decimal(5, 2)
+  altura                Decimal     @db.Decimal(5, 2)
+  
+  // Ubicación
+  pais                  String
+  ciudad                String
+  club                  String
+  aeropuertoCercano     String?
+  
+  // Multimedia
+  fotoUrl               String
+  redesSociales         String[]    @default([])
+  videosUrl             String[]    @default([])
+  
+  // Récord
+  combatesTotales       Int         @default(0)
+  combatesGanados       Int         @default(0)
+  combatesPerdidos      Int         @default(0)
+  kosRealizados         Int         @default(0)
+  kosRecibidos          Int         @default(0)
+  
+  // Sistema Elo
+  puntuacionElo         Decimal     @default(1200) @db.Decimal(10, 2)
+  experiencia           Decimal     @default(0) @db.Decimal(10, 2)
+  ultimoCombate         DateTime?
+  diasSinPelear         Int         @default(0)
+  
+  // Disponibilidad
+  disponibilidadJson    Json?       // Calendario de disponibilidad
+  bolsaMinima           Decimal?    @db.Decimal(10, 2)
+  
+  // Relaciones
+  managerId             String?
+  manager               Manager?    @relation(fields: [managerId], references: [id], onDelete: SetNull)
+  
+  ofertasRecibidas      OfertaCombate[]
+  resultadosGanados     ResultadoCombate[] @relation("Ganador")
+  resultadosPerdidos    ResultadoCombate[] @relation("Perdedor")
+  eventosParticipados   EventoPeleador[]
+  
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  @@index([puntuacionElo])
+  @@index([pais, ciudad])
+  @@index([clase, peso])
+  @@map("peleadores")
+}
+
+// Modelo Manager
+model Manager {
+  id                String      @id @default(uuid())
+  usuarioId         String      @unique
+  usuario           Usuario     @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  
+  nombre            String
+  cuentaPro         Boolean     @default(false)
+  
+  // Relaciones
+  peleadores        Peleador[]
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@map("managers")
+}
+
+// Modelo Promotor
+model Promotor {
+  id                    String      @id @default(uuid())
+  usuarioId             String      @unique
+  usuario               Usuario     @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  
+  nombre                String
+  cuentaProfesional     Boolean     @default(false)
+  filtrosPreferidos     Json?       // Filtros guardados
+  
+  // Relaciones
+  eventos               Evento[]
+  ofertas               OfertaCombate[]
+  
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  @@map("promotores")
+}
+
+// Modelo Evento
+model Evento {
+  id                    String      @id @default(uuid())
+  promotorId            String
+  promotor              Promotor    @relation(fields: [promotorId], references: [id], onDelete: Cascade)
+  
+  nombre                String
+  descripcion           String?
+  fecha                 DateTime
+  ciudad                String
+  pais                  String
+  linkExterno           String?
+  
+  // Relaciones
+  peleadores            EventoPeleador[]
+  resultados            ResultadoCombate[]
+  
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  @@index([fecha, pais])
+  @@map("eventos")
+}
+
+// Tabla intermedia Evento-Peleador
+model EventoPeleador {
+  id            String      @id @default(uuid())
+  eventoId      String
+  evento        Evento      @relation(fields: [eventoId], references: [id], onDelete: Cascade)
+  peleadorId    String
+  peleador      Peleador    @relation(fields: [peleadorId], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime    @default(now())
+
+  @@unique([eventoId, peleadorId])
+  @@map("eventos_peleadores")
+}
+
+// Modelo Oferta de Combate
+model OfertaCombate {
+  id                String          @id @default(uuid())
+  promotorId        String
+  promotor          Promotor        @relation(fields: [promotorId], references: [id], onDelete: Cascade)
+  peleadorId        String
+  peleador          Peleador        @relation(fields: [peleadorId], references: [id], onDelete: Cascade)
+  
+  fechaCombate      DateTime
+  pesoMin           Decimal         @db.Decimal(5, 2)
+  pesoMax           Decimal         @db.Decimal(5, 2)
+  bolsaOfrecida     Decimal?        @db.Decimal(10, 2)
+  
+  estado            EstadoOferta    @default(PENDIENTE)
+  fechaEstado       DateTime        @default(now())
+  
+  comunicacion      Json[]          @default([]) // Array de mensajes
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([peleadorId, estado])
+  @@index([promotorId, estado])
+  @@map("ofertas_combate")
+}
+
+// Modelo Resultado de Combate
+model ResultadoCombate {
+  id                    String          @id @default(uuid())
+  eventoId              String
+  evento                Evento          @relation(fields: [eventoId], references: [id], onDelete: Cascade)
+  
+  peleadorGanadorId     String
+  peleadorGanador       Peleador        @relation("Ganador", fields: [peleadorGanadorId], references: [id], onDelete: Cascade)
+  
+  peleadorPerdedorId    String
+  peleadorPerdedor      Peleador        @relation("Perdedor", fields: [peleadorPerdedorId], references: [id], onDelete: Cascade)
+  
+  metodo                MetodoCombate
+  desacuerdo            Boolean         @default(false)
+  pruebas               String[]        @default([]) // URLs de documentos
+  validado              Boolean         @default(false)
+  fechaValidacion       DateTime?
+  resumen               String?
+  
+  // Cambios Elo
+  puntosGanador         Decimal?        @db.Decimal(10, 2)
+  puntosPerdedor        Decimal?        @db.Decimal(10, 2)
+  
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+
+  @@index([validado])
+  @@map("resultados_combate")
+}
+
+
+
+
+
+
+
+
+

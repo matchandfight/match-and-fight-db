@@ -1,0 +1,476 @@
+/* ========================================
+   MODERN SIDE MENU - Diseño Premium 2024
+   ======================================== */
+
+/* Menú principal */
+.modern-menu {
+  --width: 280px;
+  --max-width: 300px;
+  --background: transparent;
+}
+
+.modern-menu::part(container) {
+  background: linear-gradient(180deg, #0a0f1a 0%, #111827 50%, #0f172a 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modern-menu::part(backdrop) {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.menu-content {
+  --background: transparent;
+}
+
+/* Header del menú */
+.menu-header {
+  position: relative;
+  padding: 24px 20px 20px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.menu-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.15) 0%, 
+    rgba(168, 85, 247, 0.1) 50%,
+    rgba(236, 72, 153, 0.08) 100%
+  );
+  z-index: 0;
+}
+
+.menu-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%
+  );
+}
+
+.menu-profile {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.menu-avatar-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.menu-avatar {
+  width: 56px;
+  height: 56px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899) border-box;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.menu-avatar img {
+  border-radius: 50%;
+}
+
+.menu-avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.menu-avatar-placeholder ion-icon {
+  font-size: 32px;
+  color: white;
+}
+
+.menu-online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #22c55e;
+  border: 3px solid #0a0f1a;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.menu-user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-user-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-user-role,
+.menu-user-elo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 3px;
+}
+
+.menu-user-role ion-icon,
+.menu-user-elo ion-icon {
+  font-size: 12px;
+  color: #a855f7;
+}
+
+.menu-user-elo ion-icon {
+  color: #fbbf24;
+}
+
+/* Secciones del menú */
+.menu-section {
+  padding: 8px 16px;
+}
+
+.menu-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 1.5px;
+  margin: 0 0 8px 8px;
+  text-transform: uppercase;
+}
+
+.menu-list {
+  background: transparent;
+  padding: 0;
+}
+
+.menu-list ion-item {
+  --background: transparent;
+  --background-hover: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --inner-padding-end: 0;
+  --min-height: 48px;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  --background: rgba(255, 255, 255, 0.05);
+}
+
+.menu-item-active {
+  --background: rgba(99, 102, 241, 0.15) !important;
+}
+
+.menu-item-active .menu-item-icon-wrapper {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.menu-item-active .menu-item-icon {
+  color: white !important;
+}
+
+.menu-item-active .menu-item-label {
+  color: white !important;
+  font-weight: 600;
+}
+
+.menu-item-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.menu-item-icon {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.menu-item:hover .menu-item-icon {
+  color: #a855f7;
+}
+
+.menu-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1px;
+}
+
+.menu-item-indicator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: linear-gradient(180deg, #6366f1 0%, #a855f7 100%);
+  border-radius: 3px 0 0 3px;
+}
+
+.menu-badge {
+  --background: rgba(99, 102, 241, 0.2);
+  --color: #a5b4fc;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.menu-badge-new {
+  --background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --color: white;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(236, 72, 153, 0);
+  }
+}
+
+/* Footer del menú */
+.menu-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.menu-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  color: #f87171;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-logout-btn ion-icon {
+  font-size: 18px;
+}
+
+.menu-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+.menu-logout-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   HEADER MODERNO CON MENÚ HAMBURGUESA
+   ======================================== */
+
+.modern-header {
+  --background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.modern-header::after {
+  display: none;
+}
+
+.modern-toolbar {
+  --background: transparent;
+  --border-width: 0;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+.header-blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(10, 15, 26, 0.95) 0%,
+    rgba(10, 15, 26, 0.8) 50%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.menu-toggle-btn {
+  --color: white;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  width: 44px;
+  height: 44px;
+  --border-radius: 12px;
+  --background: rgba(255, 255, 255, 0.08);
+  --background-hover: rgba(255, 255, 255, 0.12);
+  --background-activated: rgba(255, 255, 255, 0.15);
+}
+
+.menu-toggle-btn ion-icon {
+  font-size: 22px;
+}
+
+.header-title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-action-btn {
+  --color: rgba(255, 255, 255, 0.8);
+  --padding-start: 10px;
+  --padding-end: 10px;
+  width: 40px;
+  height: 40px;
+  --border-radius: 10px;
+  --background: rgba(255, 255, 255, 0.05);
+  --background-hover: rgba(255, 255, 255, 0.1);
+}
+
+.header-action-btn ion-icon {
+  font-size: 20px;
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-avatar:hover {
+  border-color: #a855f7;
+  transform: scale(1.05);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (min-width: 768px) {
+  .modern-menu {
+    --width: 300px;
+  }
+  
+  .menu-header {
+    padding: 28px 24px 24px;
+  }
+  
+  .menu-avatar {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .menu-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .menu-user-name {
+    font-size: 18px;
+  }
+  
+  .menu-section {
+    padding: 8px 20px;
+  }
+}
+
+
+
+
+

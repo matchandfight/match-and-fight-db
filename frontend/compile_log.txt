@@ -1,0 +1,12 @@
+======================================== 
+  COMPILACION INICIADA 
+  Fecha: 04/12/2025  5:24:09,16 
+======================================== 
+ 
+[1/4] npm run build... 
+
+> ranking-app-frontend@1.0.0 build
+> tsc && vite build
+
+¨Desea terminar el trabajo por lotes (S/N)? ¨Desea terminar el trabajo por lotes (S/N)? 
+^CERROR en build 

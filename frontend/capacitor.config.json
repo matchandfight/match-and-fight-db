@@ -1,0 +1,17 @@
+{
+  "appId": "com.rankingapp.muaythai",
+  "appName": "Ranking App",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "",
+      "keystorePassword": "",
+      "keystoreAlias": "",
+      "keystoreAliasPassword": ""
+    }
+  }
+}
+

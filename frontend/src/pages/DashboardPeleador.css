@@ -1,0 +1,437 @@
+/* ========================================
+   DASHBOARD PELEADOR - Diseño Premium 2024
+   ======================================== */
+
+.peleador-dashboard-content {
+  --background: var(--color-bg-primary);
+}
+
+.peleador-dashboard-content::part(background) {
+  background: var(--color-bg-primary);
+  background-image: var(--gradient-mesh);
+}
+
+.peleador-dashboard-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 100px 16px 100px 16px;
+}
+
+/* Profile Card */
+.profile-card {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.profile-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.2) 0%, 
+    rgba(168, 85, 247, 0.15) 50%,
+    rgba(236, 72, 153, 0.1) 100%
+  );
+}
+
+.profile-content {
+  position: relative;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.profile-avatar-section {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  border: 4px solid var(--color-bg-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.verified-badge-profile {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border: 3px solid var(--color-bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge-profile ion-icon {
+  font-size: 14px;
+  color: white;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.profile-alias {
+  font-size: 16px;
+  color: var(--ion-color-primary);
+  font-style: italic;
+  margin: 4px 0 12px 0;
+}
+
+.profile-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.profile-chip {
+  --background: var(--glass-bg-light);
+  --color: var(--color-text-secondary);
+  font-size: 12px;
+  height: 28px;
+}
+
+.profile-chip ion-icon {
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+.chip-clase {
+  --background: rgba(99, 102, 241, 0.15);
+  --color: #6366f1;
+  font-weight: 700;
+}
+
+.profile-elo-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.elo-value-large {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 32px;
+  font-weight: 800;
+  color: white;
+}
+
+.elo-value-large ion-icon {
+  font-size: 28px;
+}
+
+.elo-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Record Card */
+.record-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.record-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.record-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--glass-bg-light);
+  border-radius: var(--radius-lg);
+  min-width: 70px;
+}
+
+.record-number {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.record-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.record-item.wins .record-number { color: #22c55e; }
+.record-item.losses .record-number { color: #ef4444; }
+.record-item.draws .record-number { color: var(--color-text-tertiary); }
+
+.record-separator {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.record-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.record-note ion-icon {
+  font-size: 16px;
+  color: var(--ion-color-primary);
+}
+
+/* Section Card */
+.section-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.section-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.section-card-header ion-icon {
+  font-size: 20px;
+  color: var(--ion-color-primary);
+}
+
+.section-card-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.proximos-combates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.combate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--glass-bg-light);
+  border-radius: var(--radius-md);
+}
+
+.combate-fecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.combate-fecha ion-icon {
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+/* Info Card */
+.info-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 16px 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: var(--glass-bg-light);
+  border-radius: var(--radius-md);
+}
+
+.info-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.ultimo-combate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--glass-bg-light);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.ultimo-combate ion-icon {
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+/* Disponibilidad Card */
+.disponibilidad-card {
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.disponibilidad-card.disponible {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.disponibilidad-card.no-disponible {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.disponibilidad-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.disponibilidad-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disponible .disponibilidad-icon {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.disponible .disponibilidad-icon ion-icon {
+  font-size: 24px;
+  color: #22c55e;
+}
+
+.no-disponible .disponibilidad-icon {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.no-disponible .disponibilidad-icon ion-icon {
+  font-size: 24px;
+  color: #ef4444;
+}
+
+.disponibilidad-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.disponible .disponibilidad-info h4 { color: #22c55e; }
+.no-disponible .disponibilidad-info h4 { color: #ef4444; }
+
+.disponibilidad-info p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Note Card */
+.note-card {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.note-card p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.note-card strong {
+  color: var(--ion-color-primary);
+}
+
+
+
+
+

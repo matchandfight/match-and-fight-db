@@ -1,0 +1,264 @@
+/* ========================================
+   LOGIN - Diseño Minimalista Optimizado
+   ======================================== */
+
+.login-header {
+  position: absolute;
+  z-index: 100;
+}
+
+.login-header ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+}
+
+.login-content {
+  --background: var(--color-bg-primary);
+}
+
+.login-content::part(background) {
+  background: var(--color-bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+}
+
+.login-container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* Hero Section - Simplificado */
+.login-hero {
+  text-align: center;
+}
+
+.login-logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  background: var(--gradient-primary);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+.logo-icon {
+  font-size: 38px;
+}
+
+.login-hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.8px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--color-text-tertiary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Form - Simplificado */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: var(--color-text-muted);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.login-input {
+  --background: var(--glass-bg);
+  --padding-start: 48px;
+  --padding-end: 16px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --border-radius: 14px;
+  --placeholder-color: var(--color-text-muted);
+  --color: var(--color-text-primary);
+  font-size: 15px;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  height: 52px;
+}
+
+.login-input:focus-within {
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  --background: var(--color-bg-primary);
+}
+
+.login-button {
+  --background: var(--gradient-primary);
+  --box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  --border-radius: 14px;
+  height: 52px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 6px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+.login-button:active {
+  --box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  transform: scale(0.98);
+}
+
+/* Demo Section - Ultra simplificado */
+.demo-section {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.demo-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.demo-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.demo-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg-light);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.demo-btn:active {
+  transform: scale(0.96);
+}
+
+.demo-btn-peleador {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.05) 100%);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #6366f1;
+}
+
+.demo-btn-peleador:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(79, 70, 229, 0.08) 100%);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.demo-btn-admin {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(153, 27, 27, 0.05) 100%);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #dc2626;
+}
+
+.demo-btn-admin:hover {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(153, 27, 27, 0.08) 100%);
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+.demo-hint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.demo-hint strong {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+}
+
+/* Register Link - Simplificado */
+.register-link {
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-tertiary);
+  padding-top: 8px;
+}
+
+.register-link span {
+  margin-right: 6px;
+}
+
+.register-link a {
+  color: var(--ion-color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.register-link a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 380px) {
+  .login-container {
+    padding: 0 20px;
+    gap: 24px;
+  }
+  
+  .login-hero h1 {
+    font-size: 28px;
+  }
+  
+  .login-logo {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .logo-icon {
+    font-size: 34px;
+  }
+
+  .demo-buttons {
+    flex-direction: column;
+  }
+
+  .demo-btn {
+    width: 100%;
+  }
+}
+
+@media (min-height: 700px) {
+  .login-container {
+    gap: 32px;
+  }
+}
