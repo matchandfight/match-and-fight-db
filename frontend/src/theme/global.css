@@ -2,14 +2,8 @@
    GLOBAL STYLES - Diseño Estilo Strava
    ======================================== */
 
-/* Importar Sistema de Diseño Strava */
-@import "./strava-design-system.css";
-
-/* Importar Optimizaciones Web */
-@import "./web-optimized.css";
-
-/* Importar Tema Base44 Dark */
-@import "./base44-dark-theme.css";
+/* Importar Estilo Chronelia (Activo) */
+@import "./chronelia-style.css";
 
 * {
   box-sizing: border-box;

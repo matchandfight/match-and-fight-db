@@ -1,136 +1,138 @@
 /* ========================================
-   LOGIN - Estilo Strava
+   LOGIN - Estilo Chronelia
    ======================================== */
 
 .login-page {
-  --background: linear-gradient(135deg, #FC4C02 0%, #E34402 100%);
+  --background: transparent;
 }
 
 .login-content {
   --padding-top: 0;
   --padding-bottom: 0;
+  --background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background: linear-gradient(135deg, 
+    rgb(230, 245, 255) 0%,
+    rgb(255, 240, 230) 50%,
+    rgb(255, 250, 240) 100%
+  );
+  background-attachment: fixed;
 }
 
 /* === CONTAINER === */
 .login-container {
   width: 100%;
   max-width: 440px;
-  padding: var(--strava-space-lg);
+  padding: 32px 16px;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 /* === LOGO SECTION === */
 .login-logo-section {
   text-align: center;
-  margin-bottom: var(--strava-space-2xl);
-  animation: fadeInDown 0.6s ease-out;
+  margin-bottom: 32px;
 }
 
 .login-logo {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--strava-space-lg);
-  background: white;
-  border-radius: var(--strava-border-radius-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-}
-
-.login-logo ion-icon {
-  font-size: 48px;
-  color: var(--strava-orange);
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 20px;
+  object-fit: contain;
 }
 
 .login-title {
-  font-size: var(--strava-font-size-4xl);
-  font-weight: var(--strava-font-weight-bold);
-  color: white;
-  margin: 0 0 var(--strava-space-sm) 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 36px;
+  font-weight: 700;
+  color: rgb(60, 60, 60);
+  margin: 0 0 8px 0;
+  line-height: 1;
 }
 
 .login-subtitle {
-  font-size: var(--strava-font-size-lg);
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  color: rgb(120, 120, 120);
   margin: 0;
+  line-height: 1.5;
 }
 
 /* === CARD === */
 .login-card {
-  background: white;
-  border-radius: var(--strava-border-radius-xl);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 1.5rem;
   overflow: hidden;
-  animation: slideInUp 0.6s ease-out 0.2s backwards;
 }
 
 .login-card-content {
-  padding: var(--strava-space-2xl) var(--strava-space-lg);
+  padding: 32px;
 }
 
 /* === WELCOME === */
 .login-welcome {
-  margin-bottom: var(--strava-space-xl);
+  margin-bottom: 24px;
 }
 
 .login-welcome h2 {
-  font-size: var(--strava-font-size-2xl);
-  font-weight: var(--strava-font-weight-bold);
-  color: var(--strava-black);
-  margin: 0 0 var(--strava-space-xs) 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(60, 60, 60);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
 }
 
 .login-welcome p {
-  font-size: var(--strava-font-size-base);
-  color: var(--strava-mid-gray);
+  font-size: 14px;
+  color: rgb(120, 120, 120);
   margin: 0;
+  line-height: 1.5;
 }
 
 /* === FORM === */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: var(--strava-space-lg);
+  gap: 20px;
 }
 
 .login-input-group {
   display: flex;
   flex-direction: column;
-  gap: var(--strava-space-sm);
+  gap: 8px;
 }
 
 .login-label {
-  font-size: var(--strava-font-size-sm);
-  font-weight: var(--strava-font-weight-semibold);
-  color: var(--strava-black);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(60, 60, 60);
   margin: 0;
 }
 
 .login-input {
-  --background: var(--strava-bg-gray);
-  --border-radius: var(--strava-border-radius-lg);
-  --padding-start: var(--strava-space-md);
-  --padding-end: var(--strava-space-md);
-  --padding-top: 14px;
-  --padding-bottom: 14px;
-  --color: var(--strava-black);
-  --placeholder-color: var(--strava-light-gray);
+  --background: white;
+  --border-radius: 0.75rem;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --color: rgb(60, 60, 60);
+  --placeholder-color: rgb(180, 180, 180);
   --placeholder-opacity: 1;
-  font-size: var(--strava-font-size-base);
-  font-weight: var(--strava-font-weight-medium);
-  border: 2px solid transparent;
-  transition: all var(--strava-transition-base);
+  font-size: 15px;
+  border: 1px solid rgba(220, 220, 220, 0.5);
+  transition: all 0.2s ease;
 }
 
 .login-input:focus {
   --background: white;
-  border-color: var(--strava-orange);
-  box-shadow: 0 0 0 4px rgba(252, 76, 2, 0.1);
+  border-color: rgb(255, 107, 53);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
 
 .login-input.has-error {
@@ -191,23 +193,21 @@
 
 /* === BUTTONS === */
 .login-button {
-  --background: var(--strava-orange);
-  --background-hover: var(--strava-orange-dark);
-  --background-activated: var(--strava-orange-dark);
-  --border-radius: var(--strava-border-radius-lg);
-  --padding-top: 16px;
-  --padding-bottom: 16px;
-  --box-shadow: 0 4px 12px rgba(252, 76, 2, 0.3);
-  height: 56px;
-  font-size: var(--strava-font-size-lg);
-  font-weight: var(--strava-font-weight-bold);
+  --background: linear-gradient(135deg, rgb(255, 107, 53), rgb(255, 140, 90));
+  --border-radius: 0.75rem;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  height: 50px;
+  font-size: 15px;
+  font-weight: 600;
   text-transform: none;
-  margin-top: var(--strava-space-md);
+  margin-top: 8px;
 }
 
 .login-button:hover {
-  transform: translateY(-2px);
-  --box-shadow: 0 6px 20px rgba(252, 76, 2, 0.4);
+  transform: translateY(-1px);
+  --box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
 }
 
 /* === DIVIDER === */

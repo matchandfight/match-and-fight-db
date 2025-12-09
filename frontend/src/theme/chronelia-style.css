@@ -1,0 +1,308 @@
+/* ========================================
+   CHRONELIA STYLE - Adaptado de Chronelia
+   Gradientes pastel, cards limpias, spacing correcto
+   ======================================== */
+
+:root {
+  /* Colores Chronelia - Tema Pastel */
+  --chronelia-bg: linear-gradient(135deg, 
+    rgb(230, 245, 255) 0%,   /* Azul pastel */
+    rgb(255, 240, 230) 50%,  /* Naranja pastel */
+    rgb(255, 250, 240) 100%  /* Amarillo pastel */
+  );
+  
+  --chronelia-orange: rgb(255, 107, 53);
+  --chronelia-blue: rgb(74, 144, 226);
+  --chronelia-coral: rgb(255, 140, 90);
+  
+  /* Texto */
+  --chronelia-text: rgb(60, 60, 60);
+  --chronelia-text-light: rgb(80, 80, 80);
+  --chronelia-text-muted: rgb(120, 120, 120);
+  
+  /* Borders */
+  --chronelia-border: rgba(255, 107, 53, 0.1);
+  --chronelia-border-light: rgba(220, 220, 220, 0.5);
+}
+
+/* === BODY === */
+body {
+  background: linear-gradient(135deg, 
+    rgb(230, 245, 255) 0%,
+    rgb(255, 240, 230) 50%,
+    rgb(255, 250, 240) 100%
+  );
+  background-attachment: fixed;
+  color: var(--chronelia-text);
+}
+
+/* === IONIC OVERRIDES === */
+ion-app {
+  background: transparent !important;
+}
+
+ion-content {
+  --background: transparent;
+}
+
+/* === CONTAINERS === */
+.chronelia-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.chronelia-container-sm {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* === CARDS === */
+.chronelia-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 1.5rem;
+  padding: 24px;
+  transition: all 0.25s ease;
+}
+
+.chronelia-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* === HEADER === */
+.chronelia-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--chronelia-border);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* === SIDEBAR === */
+.chronelia-sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--chronelia-border);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.06);
+}
+
+/* === STATS GRID === */
+.chronelia-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chronelia-stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1.25rem;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.chronelia-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.chronelia-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.chronelia-stat-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--chronelia-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chronelia-stat-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--chronelia-text-muted);
+}
+
+.chronelia-stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--chronelia-text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.chronelia-stat-label {
+  font-size: 12px;
+  color: var(--chronelia-text-muted);
+}
+
+/* === BUTTONS === */
+.chronelia-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.chronelia-btn-primary {
+  background: linear-gradient(135deg, rgb(255, 107, 53), rgb(255, 140, 90));
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.chronelia-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
+}
+
+.chronelia-btn-outline {
+  border: 2px solid rgb(255, 107, 53);
+  background: white;
+  color: rgb(255, 107, 53);
+}
+
+.chronelia-btn-outline:hover {
+  background: rgb(255, 107, 53);
+  color: white;
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+}
+
+.chronelia-btn-secondary {
+  background: linear-gradient(135deg, rgb(74, 144, 226), rgb(91, 159, 237));
+  color: white;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.chronelia-btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.4);
+}
+
+/* === GRID LAYOUTS === */
+.chronelia-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.chronelia-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* === TYPOGRAPHY === */
+.chronelia-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--chronelia-text);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.chronelia-subtitle {
+  font-size: 15px;
+  color: var(--chronelia-text-muted);
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+/* === SIDEBAR ITEMS === */
+.chronelia-sidebar-item {
+  padding: 12px 16px;
+  border-radius: 0.75rem;
+  color: var(--chronelia-text-light);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.chronelia-sidebar-item:hover {
+  background: rgba(255, 107, 53, 0.08);
+  color: rgb(255, 107, 53);
+}
+
+.chronelia-sidebar-item.active {
+  background: linear-gradient(135deg, rgb(255, 107, 53), rgb(255, 140, 90));
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  font-weight: 600;
+}
+
+/* === SPACING UTILITIES === */
+.chronelia-space-y-4 > * + * {
+  margin-top: 16px;
+}
+
+.chronelia-space-y-6 > * + * {
+  margin-top: 24px;
+}
+
+.chronelia-mb-3 {
+  margin-bottom: 12px;
+}
+
+.chronelia-mb-4 {
+  margin-bottom: 16px;
+}
+
+.chronelia-mb-6 {
+  margin-bottom: 24px;
+}
+
+/* === RESPONSIVE === */
+@media (min-width: 768px) {
+  .chronelia-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .chronelia-container {
+    padding: 32px;
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes chronelia-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chronelia-animate-in {
+  animation: chronelia-fade-in 0.4s ease-out;
+}
+
