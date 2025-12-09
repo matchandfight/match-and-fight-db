@@ -14,30 +14,37 @@
 /* === HEADER === */
 .promotor-header {
   background: white;
-  padding: var(--strava-space-lg) var(--strava-space-lg) var(--strava-space-md);
+  padding: 40px 40px 32px;
   border-bottom: 1px solid var(--strava-lighter-gray);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .promotor-header-welcome {
-  margin: 0 0 var(--strava-space-xs) 0;
-  font-size: var(--strava-font-size-lg);
+  margin: 0 0 12px 0;
+  font-size: 18px;
   font-weight: var(--strava-font-weight-medium);
   color: var(--strava-mid-gray);
+  line-height: 1.5;
 }
 
 .promotor-header-name {
-  margin: 0 0 var(--strava-space-lg) 0;
-  font-size: var(--strava-font-size-3xl);
+  margin: 0 0 8px 0;
+  font-size: 42px;
   font-weight: var(--strava-font-weight-bold);
   color: var(--strava-black);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 /* === STATS GRID === */
 .promotor-stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--strava-space-md);
-  padding: var(--strava-space-lg);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 32px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
   background: white;
   border-bottom: 8px solid var(--strava-bg-gray);
 }
@@ -45,9 +52,13 @@
 .promotor-stat-card {
   background: var(--strava-bg-gray);
   border-radius: var(--strava-border-radius-lg);
-  padding: var(--strava-space-lg);
+  padding: 28px;
   transition: all var(--strava-transition-base);
   cursor: pointer;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .promotor-stat-card:hover {
@@ -56,14 +67,14 @@
 }
 
 .promotor-stat-icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--strava-border-radius-lg);
-  margin-bottom: var(--strava-space-md);
-  font-size: 24px;
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
 .promotor-stat-icon.orange {
@@ -87,38 +98,42 @@
 }
 
 .promotor-stat-value {
-  font-size: var(--strava-font-size-4xl);
+  font-size: 48px;
   font-weight: var(--strava-font-weight-bold);
   color: var(--strava-black);
   line-height: 1;
-  margin-bottom: var(--strava-space-xs);
+  margin-bottom: 12px;
 }
 
 .promotor-stat-label {
-  font-size: var(--strava-font-size-sm);
+  font-size: 14px;
   font-weight: var(--strava-font-weight-medium);
   color: var(--strava-mid-gray);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  line-height: 1.4;
 }
 
 /* === SECTIONS === */
 .promotor-section {
-  padding: var(--strava-space-lg);
+  padding: 32px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .promotor-section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--strava-space-lg);
+  margin-bottom: 28px;
 }
 
 .promotor-section-title {
-  font-size: var(--strava-font-size-2xl);
+  font-size: 32px;
   font-weight: var(--strava-font-weight-bold);
   color: var(--strava-black);
   margin: 0;
+  line-height: 1.3;
 }
 
 .promotor-section-action {
@@ -139,9 +154,9 @@
 
 /* === EVENT CARDS === */
 .promotor-eventos-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--strava-space-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .promotor-evento-card {
@@ -166,7 +181,7 @@
 }
 
 .promotor-evento-content {
-  padding: var(--strava-space-lg);
+  padding: 24px 28px;
 }
 
 .promotor-evento-header {
@@ -177,20 +192,26 @@
 }
 
 .promotor-evento-title {
-  font-size: var(--strava-font-size-xl);
+  font-size: 20px;
   font-weight: var(--strava-font-weight-bold);
   color: var(--strava-black);
-  margin: 0 0 var(--strava-space-xs) 0;
-  line-height: 1.2;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+  min-height: 52px; /* Evita superposición */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .promotor-evento-date {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: var(--strava-font-size-sm);
+  font-size: 14px;
   color: var(--strava-mid-gray);
-  margin-bottom: var(--strava-space-md);
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .promotor-evento-stats {
@@ -333,48 +354,27 @@
   color: var(--strava-mid-gray);
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
+/* === RESPONSIVE (Tablet) === */
+@media (max-width: 1024px) {
   .promotor-stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .promotor-header {
-    padding: var(--strava-space-md);
-  }
-  
-  .promotor-header-name {
-    font-size: var(--strava-font-size-2xl);
-  }
-  
-  .promotor-section {
-    padding: var(--strava-space-md);
-  }
-  
-  .promotor-evento-stats {
-    gap: var(--strava-space-sm);
-  }
-  
-  .promotor-stat-value {
-    font-size: var(--strava-font-size-3xl);
-  }
-}
-
-@media (min-width: 769px) {
-  .promotor-eventos-list {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--strava-space-lg);
   }
   
-  .promotor-stats-grid {
-    grid-template-columns: repeat(4, 1fr);
+  .promotor-eventos-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .promotor-header,
+  .promotor-section {
+    padding: 24px 28px;
   }
 }
 
-@media (min-width: 1200px) {
-  .promotor-eventos-list {
-    grid-template-columns: repeat(3, 1fr);
+/* === NO MOBILE (por ahora) === */
+@media (max-width: 768px) {
+  /* Mantener diseño desktop */
+  .dashboard-promotor-content {
+    min-width: 768px;
   }
 }
 

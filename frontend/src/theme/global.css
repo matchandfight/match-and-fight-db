@@ -5,6 +5,9 @@
 /* Importar Sistema de Diseño Strava */
 @import "./strava-design-system.css";
 
+/* Importar Optimizaciones Web */
+@import "./web-optimized.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
