@@ -1,0 +1,426 @@
+/* ========================================
+   LOGIN BASE44 DARK - Tarjeta Centrada
+   ======================================== */
+
+.login-base44-page {
+  background: var(--base44-bg-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+/* === BACKGROUND EFFECTS === */
+.login-base44-page::before {
+  content: '';
+  position: absolute;
+  top: -300px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.login-base44-page::after {
+  content: '';
+  position: absolute;
+  bottom: -300px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* === GRID BACKGROUND === */
+.login-base44-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* === LOGIN CONTAINER === */
+.login-base44-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* === LOGIN CARD === */
+.login-base44-card {
+  background: rgba(20, 24, 36, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-base44-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+}
+
+/* === LOGO === */
+.login-base44-logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-base44-logo-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+.login-base44-logo-icon ion-icon {
+  font-size: 44px;
+  color: white;
+}
+
+.login-base44-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--base44-text-primary);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-base44-subtitle {
+  font-size: 16px;
+  color: var(--base44-text-tertiary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* === FORM === */
+.login-base44-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-base44-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-base44-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--base44-text-secondary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-base44-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--base44-bg-elevated);
+  border: 1px solid var(--base44-border);
+  border-radius: 12px;
+  color: var(--base44-text-primary);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.login-base44-input:focus {
+  outline: none;
+  border-color: var(--base44-purple);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+  background: var(--base44-bg-secondary);
+}
+
+.login-base44-input::placeholder {
+  color: var(--base44-text-muted);
+}
+
+/* === REMEMBER & FORGOT === */
+.login-base44-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-base44-remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-base44-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--base44-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-base44-checkbox:checked {
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  border-color: transparent;
+}
+
+.login-base44-remember-label {
+  font-size: 14px;
+  color: var(--base44-text-secondary);
+  margin: 0;
+  cursor: pointer;
+}
+
+.login-base44-forgot {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--base44-purple);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-base44-forgot:hover {
+  color: var(--base44-pink);
+}
+
+/* === BUTTON === */
+.login-base44-button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  margin-top: 8px;
+}
+
+.login-base44-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5);
+}
+
+.login-base44-button:active {
+  transform: translateY(0);
+}
+
+/* === DIVIDER === */
+.login-base44-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.login-base44-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--base44-border);
+}
+
+.login-base44-divider-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--base44-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === SOCIAL === */
+.login-base44-social {
+  display: flex;
+  gap: 12px;
+}
+
+.login-base44-social-btn {
+  flex: 1;
+  padding: 16px;
+  background: var(--base44-bg-elevated);
+  border: 1px solid var(--base44-border);
+  border-radius: 12px;
+  color: var(--base44-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login-base44-social-btn:hover {
+  background: var(--base44-bg-tertiary);
+  border-color: var(--base44-border-hover);
+  color: var(--base44-text-primary);
+}
+
+.login-base44-social-btn ion-icon {
+  font-size: 20px;
+}
+
+/* === FOOTER === */
+.login-base44-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--base44-border);
+}
+
+.login-base44-footer-text {
+  font-size: 14px;
+  color: var(--base44-text-tertiary);
+  margin: 0;
+}
+
+.login-base44-footer-link {
+  color: var(--base44-purple);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.login-base44-footer-link:hover {
+  color: var(--base44-pink);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .login-base44-card {
+    padding: 32px 24px;
+  }
+  
+  .login-base44-title {
+    font-size: 28px;
+  }
+  
+  .login-base44-logo-icon {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .login-base44-logo-icon ion-icon {
+    font-size: 36px;
+  }
+}
+
+/* === ANIMATION === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === ERROR MESSAGES === */
+.login-base44-error {
+  padding: 14px 18px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  color: #EF4444;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: shake 0.3s ease;
+}
+
+.login-base44-error ion-icon {
+  font-size: 20px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+/* === LOADING === */
+.login-base44-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login-base44-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -8,6 +8,9 @@
 /* Importar Optimizaciones Web */
 @import "./web-optimized.css";
 
+/* Importar Tema Base44 Dark */
+@import "./base44-dark-theme.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
